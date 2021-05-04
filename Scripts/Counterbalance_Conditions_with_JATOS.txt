@@ -1,0 +1,76 @@
+conds = ["A", "B"] // define the conditions, e.g. here two conditions
+
+// define how many participants in each condition
+// if you do not have a prespecified fixed sample size
+// its best to leave this at 1
+countConds = 1 
+
+
+// check if there is already a JATOS variable called conditions in the current session
+// IF NOT
+// 	Create an array with countsConds * number of conds entries
+// 		e.g., if we have countConds = 2 and conds = ["A", "B"] 
+//		this will create an array conditions = ["A","A","B","B"]
+//	Shuffle Array conditions
+//		e.g., conditions = ["A","A","B","B"] becomes conditions = ["B","A","B","A"]
+// IF conditions already exisits
+//	load the array from JATOS		
+
+if (!jatos.batchSession.defined("/conditions")) {
+  conditions = []
+  for (j = 0; j < countConds; ++j) {
+    conditions.push(conds[0]) // adds a condition "A"
+    conditions.push(conds[1]) // adds a condition "B"
+  }
+  window.conditions = this.random.shuffle(conditions)
+} else {
+  window.conditions = jatos.batchSession.get("conditions")
+}
+
+
+
+// save condition of the current participant for the experiment by using the first entry in conditions
+// e.g., conditions = ["B","A","B","A"] -> this.state.condition = "B"
+
+	this.state.condition = conditions[0]  
+
+//splice(start,how many shold be deleted)
+//This deletes the first entry from the conditions array
+//e.g., conditions = ["B","A","B","A"] becomes conditions = ["A","B","A"]
+
+	conditions.splice(0,1) 
+
+
+// Check if the conditions array is empty 
+// IF so
+//	fill the array again
+//	shuffle again
+//	send updated array to JATOS
+// IF not yet empty
+//	send updated conditions array to JATOS, so the next participant
+//	gets the next condition entry 
+
+if (conditions.length == 0){
+  conditions = []
+  for (j = 0; j < countConds; ++j) {
+    conditions.push(conds[0]) // adds a condition "A"
+    conditions.push(conds[1]) // adds a condition "B"
+  }
+  window.conditions = this.random.shuffle(conditions)
+  jatos.batchSession.set("conditions", conditions)
+
+
+  // If you have a fixed number of participants who can take part in the studie, e.g. 30 in each condition
+  // you could use the following code, to prevent participants from taking part in the study when all slots are full
+  // Disclaimer: I haven't tested this so far
+	// if (conditions.length == 0) {
+  		alert("Sorry, this experiment is no longer available")
+  		window.close()
+	// }
+
+
+} else {
+  jatos.batchSession.set("conditions", conditions)
+}
+
+

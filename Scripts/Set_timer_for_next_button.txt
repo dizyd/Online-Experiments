@@ -1,0 +1,18 @@
+// This codes make sure that participants do not
+// advance to the next page by accident by setting a timer
+// after which key responses are registered 
+
+// 1. 	set a general time for instance on previous page
+const timer = 1000 //1000ms = 1s
+
+// 2. 	put this code on every page you need it in
+// 	the before:prepare script part of lab.JS
+//	You might want to change the key this code applies to,
+//	here it is the Space key
+
+this.options.events['keydown(Space)'] = function(e) {
+  e.preventDefault()
+  if (this.timer > this.state.timer_in_ms) {
+    this.respond('next', e.timeStamp)
+  }
+}
