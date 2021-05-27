@@ -32,7 +32,11 @@ Or if you are using prolific:
 - **Preview Links**: Perhaps you want to allow General Single or Personal Single workers to have a peek into the study, to preview it.
 
 
+## Prolific & JATOS
 
+- **Redirect Links**: There are several methods to set a redirect link at the end of the study (see [here]()). The easiest way is to just paste the URL in the **End Redirect URL** field in the study properties
+
+- **Prolific URL parameters**: Instead of participants typing their Prolific-ID, you can make Prolific include the ID and other informations in the URL and then access those URL parameters in your study’s JavaScript via `jatos.urlQueryParameters`.
 
 
 
