@@ -3,12 +3,19 @@
 
 This is supposed to be an internal documentation and collection of useful code snippets for `labJS` and `JATOS`.  
 
-## labJS
+## Experiments
+
+In the `experiments` folder there are several experiments created with [lab.JS](https://labjs.felixhenninger.com/) for different experimental paradigms used for real studies or for teaching purposes. Therefore, most of them are probably in German. 
+
+
+## Documentation
+
+### labJS
 
 
 - **Add data transmission points in your study:** JATOS only saves data after a component is finished. To incrementaly save data you can use the `Data Transmission` template from labJS at certain points in your study.
 
-## JATOS
+### JATOS
 
 See [here](https://www.jatos.org/Restricting-study-flow.html#ensure-a-linear-study-flow-since-version-351) for more information: 
 
@@ -32,7 +39,7 @@ Or if you are using prolific:
 - **Preview Links**: Perhaps you want to allow General Single or Personal Single workers to have a peek into the study, to preview it.
 
 
-## Prolific & JATOS
+### Prolific & JATOS
 
 - **Redirect Links**: There are several methods to set a redirect link at the end of the study (see [here]()). The easiest way is to just paste the URL in the **End Redirect URL** field in the study properties
 
