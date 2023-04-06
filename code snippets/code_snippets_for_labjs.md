@@ -1,4 +1,4 @@
-Slider input with nicely formatted endpoints
+## Slider input with nicely formatted endpoints
 
 ```html
 <div class="content-horizontal-space-between">
@@ -9,7 +9,7 @@ Slider input with nicely formatted endpoints
 ```
 
 
-### Query select all elements with specific class
+## Query select all elements with specific class
 
 ```javascript
 
@@ -17,7 +17,7 @@ Slider input with nicely formatted endpoints
   
 ```
 
-### Loop over selected element
+## Loop over selected element
 
 ```javascript
 const all_elements = document.querySelectorAll(".some_class");
@@ -27,7 +27,7 @@ all_elements.forEach((i) => {
 });
 ```
 
-### Add an event listener (needs to be in `run` phase)
+## Add an event listener (needs to be in `run` phase)
 
 ```javascript
 window.addEventListener('input', updateValue);

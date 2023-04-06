@@ -1,7 +1,7 @@
 
 # Online Experiments
 
-This is supposed to be an internal documentation and collection of useful code snippets for `labJS` and `JATOS`.  
+This is supposed to be an internal documentation and collection of useful code snippets for `lab.js` and `JATOS`.  
 
 ## Experiments
 
@@ -12,8 +12,7 @@ In the `experiments` folder there are several experiments created with [lab.JS](
 
 ### labJS
 
-
-- **Add data transmission points in your study:** JATOS only saves data after a component is finished. To incrementaly save data you can use the `Data Transmission` template from labJS at certain points in your study.
+- **Add data transmission points in your study:** JATOS only saves data after a component is finished. To incrementaly save data you can use the `Data Transmission` template from `lab.js` at certain points in your study.
 
 ### JATOS
 
